@@ -96,6 +96,7 @@ export function Dropdown<T extends { label: string; value: number | string }>(
         className={cn(
           "flex w-full items-center justify-between rounded-[8px] border border-[#D1D5DB] bg-[#F9FAFB] px-4 py-3 text-left text-[#999999] hover:border-[#666666] focus:outline-none",
           isOpen && "rounded-b-none border-b-0 border-[#666666]",
+          selected && "text-[#333333]",
           buttonClassName,
         )}
         onMouseDown={(e) => {

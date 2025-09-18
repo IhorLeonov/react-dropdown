@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Dropdown } from "./components/Dropdown";
 
+type Option = { label: string; value: number | string };
+
 const countries = [
   { label: "Item 1", value: 0 },
   { label: "Item 2", value: 1 },
@@ -9,10 +11,8 @@ const countries = [
 ];
 
 function App() {
-  const [selected, setSelected] = useState<{
-    label: string;
-    value: number | string;
-  } | null>(null);
+  const [selected, setSelected] = useState<Option | null>(null);
+  const [selected2, setSelected2] = useState<Option | null>(null);
 
   // async search example
   const searchCountries = async (query: string) => {
@@ -47,6 +47,8 @@ function App() {
           <Dropdown
             className="mt-2"
             options={countries}
+            selected={selected2}
+            onSelect={setSelected2}
             customOption={(opt) => (
               <span className="flex items-center gap-2">🙂 {opt.label}</span>
             )}
